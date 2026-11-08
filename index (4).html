@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#ffd9e6" />
+  <title>Our Cute Love Story</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Nền mềm + hiệu ứng hạt tim bay nhẹ -->
+  <div class="bg" aria-hidden="true"><i></i><i></i><i></i></div>
+  <canvas id="fx" aria-hidden="true"></canvas>
+
+  <!-- SVG trái tim dùng chung -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <linearGradient id="gHeart" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#ff9ab9" />
+        <stop offset="1" stop-color="#ff5c92" />
+      </linearGradient>
+      <symbol id="heart" viewBox="0 0 100 90">
+        <path d="M50 88C50 88 4 56 4 28C4 13 15 3 28 3C38 3 46 8 50 17C54 8 62 3 72 3C85 3 96 13 96 28C96 56 50 88 50 88Z" />
+      </symbol>
+    </defs>
+  </svg>
+
+  <main id="app">
+
+    <!-- ============ TRANG 1: WELCOME ============ -->
+    <section class="scene is-active" id="scene-welcome" data-scene="welcome">
+      <h1 class="welcome-title">WELCOME TO OUR<br />CUTE LOVE STORY</h1>
+      <p class="welcome-sub">1 năm yêu nhau</p>
+
+      <button class="big-heart" id="startBtn" type="button" aria-label="Bấm vào để bắt đầu">
+        <svg class="big-heart__shape" viewBox="0 0 100 90" aria-hidden="true">
+          <use href="#heart" fill="url(#gHeart)" />
+        </svg>
+        <span class="big-heart__shine" aria-hidden="true"></span>
+        <span class="big-heart__text">click me</span>
+      </button>
+    </section>
+
+    <!-- ============ TRANG 2: CÂY TRÁI TIM ============ -->
+    <section class="scene" id="scene-tree" data-scene="tree" aria-hidden="true">
+      <div class="ground" id="ground"></div>
+      <canvas id="treeCanvas" aria-label="Cây trái tim đang mọc"></canvas>
+
+      <!-- Bạn nam (trái) -->
+      <figure class="polaroid polaroid--left" id="polBoy">
+        <div class="bubble" id="bubbleBoy">Cả thế giới để anh lo</div>
+        <span class="tape"></span>
+        <div class="polaroid__photo"><img src="images/boy.jpg" alt="Ảnh hồi nhỏ của anh" /></div>
+        <svg class="polaroid__heart" viewBox="0 0 100 90" aria-hidden="true"><use href="#heart" /></svg>
+      </figure>
+
+      <!-- Bạn nữ (phải) -->
+      <figure class="polaroid polaroid--right" id="polGirl">
+        <div class="bubble" id="bubbleGirl">Thế giới</div>
+        <span class="tape"></span>
+        <div class="polaroid__photo"><img src="images/girl.jpg" alt="Ảnh hồi nhỏ của em" /></div>
+        <svg class="polaroid__heart" viewBox="0 0 100 90" aria-hidden="true"><use href="#heart" /></svg>
+      </figure>
+
+      <button class="nav-heart" type="button" data-next="letter" aria-label="Trang tiếp theo">
+        <svg viewBox="0 0 100 90" aria-hidden="true"><use href="#heart" fill="url(#gHeart)" /></svg>
+      </button>
+    </section>
+
+    <!-- ============ TRANG 3: THƯ + ẢNH KỶ NIỆM ============ -->
+    <section class="scene" id="scene-letter" data-scene="letter" aria-hidden="true">
+      <div class="letter-layout">
+
+        <!-- ✏️ SỬA LỜI THƯ Ở ĐÂY (mỗi thẻ <p> là một đoạn) -->
+        <article class="letter" id="letter" aria-label="Thư gửi người yêu">
+          <h2 class="letter__title" id="letterTitle">Gửi em của anh,</h2>
+          <div class="letter__body" id="letterBody">
+            <p>Một năm trôi qua nhanh như một cái chớp mắt, vì ngày nào có em cũng là một ngày đáng nhớ. Cảm ơn em đã đến, đã ở lại và thương anh theo cách dịu dàng nhất.</p>
+            <p>Cảm ơn em vì đã kiên nhẫn với những lúc anh vụng về, vì những buổi chiều cười thật to, và cả những lúc chỉ ngồi cạnh nhau không nói gì mà vẫn thấy bình yên.</p>
+            <p>Anh không hứa mình sẽ hoàn hảo, nhưng anh hứa sẽ luôn cố gắng để em được hạnh phúc. Cả thế giới này để anh lo.</p>
+            <p class="letter__sign">Yêu em nhiều, anh ♡</p>
+          </div>
+        </article>
+
+        <!-- ✏️ THÊM / BỚT ẢNH: thêm hoặc xoá thẻ <figure> bên dưới (ảnh nằm trong images/memories) -->
+        <div class="gallery" id="gallery" aria-label="Ảnh kỷ niệm">
+          <div class="gallery__stage">
+            <div class="ring" id="ring">
+              <figure class="mcard"><img src="images/memories/01.jpg" alt="Kỷ niệm 1" /></figure>
+              <figure class="mcard"><img src="images/memories/02.jpg" alt="Kỷ niệm 2" /></figure>
+              <figure class="mcard"><img src="images/memories/03.jpg" alt="Kỷ niệm 3" /></figure>
+              <figure class="mcard"><img src="images/memories/04.jpg" alt="Kỷ niệm 4" /></figure>
+              <figure class="mcard"><img src="images/memories/05.jpg" alt="Kỷ niệm 5" /></figure>
+              <figure class="mcard"><img src="images/memories/06.jpg" alt="Kỷ niệm 6" /></figure>
+              <figure class="mcard"><img src="images/memories/07.jpg" alt="Kỷ niệm 7" /></figure>
+              <figure class="mcard"><img src="images/memories/08.jpg" alt="Kỷ niệm 8" /></figure>
+              <figure class="mcard"><img src="images/memories/09.jpg" alt="Kỷ niệm 9" /></figure>
+              <figure class="mcard"><img src="images/memories/10.jpg" alt="Kỷ niệm 10" /></figure>
+              <figure class="mcard"><img src="images/memories/11.jpg" alt="Kỷ niệm 11" /></figure>
+              <figure class="mcard"><img src="images/memories/12.jpg" alt="Kỷ niệm 12" /></figure>
+              <figure class="mcard"><img src="images/memories/13.jpg" alt="Kỷ niệm 13" /></figure>
+              <figure class="mcard"><img src="images/memories/14.jpg" alt="Kỷ niệm 14" /></figure>
+              <figure class="mcard"><img src="images/memories/15.jpg" alt="Kỷ niệm 15" /></figure>
+              <figure class="mcard"><img src="images/memories/16.jpg" alt="Kỷ niệm 16" /></figure>
+              <figure class="mcard"><img src="images/memories/17.jpg" alt="Kỷ niệm 17" /></figure>
+              <figure class="mcard"><img src="images/memories/18.jpg" alt="Kỷ niệm 18" /></figure>
+              <figure class="mcard"><img src="images/memories/19.jpg" alt="Kỷ niệm 19" /></figure>
+            </div>
+          </div>
+          <div class="gallery__shadow" aria-hidden="true"></div>
+        </div>
+      </div>
+
+      <button class="nav-heart" type="button" data-next="final" aria-label="Trang tiếp theo">
+        <svg viewBox="0 0 100 90" aria-hidden="true"><use href="#heart" fill="url(#gHeart)" /></svg>
+      </button>
+    </section>
+
+    <!-- ============ TRANG 4: CONTINUE FOREVER LOVE ============ -->
+    <section class="scene" id="scene-final" data-scene="final" aria-hidden="true">
+      <div class="final">
+        <svg class="final__heart" viewBox="0 0 100 90" aria-hidden="true"><use href="#heart" /></svg>
+        <h2 class="final__text">Continue<br />forever love</h2>
+      </div>
+      <button class="replay" id="replayBtn" type="button">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5V2L7 6.5 12 11V8a5 5 0 1 1-5 5H5a7 7 0 1 0 7-8z" /></svg>
+        Xem lại từ đầu
+      </button>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
