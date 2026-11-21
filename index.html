@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
@@ -8,10 +9,13 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+    rel="stylesheet" />
 
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
 
   <!-- Nền mềm + hiệu ứng hạt tim bay nhẹ -->
@@ -26,7 +30,8 @@
         <stop offset="1" stop-color="#ff5c92" />
       </linearGradient>
       <symbol id="heart" viewBox="0 0 100 90">
-        <path d="M50 88C50 88 4 56 4 28C4 13 15 3 28 3C38 3 46 8 50 17C54 8 62 3 72 3C85 3 96 13 96 28C96 56 50 88 50 88Z" />
+        <path
+          d="M50 88C50 88 4 56 4 28C4 13 15 3 28 3C38 3 46 8 50 17C54 8 62 3 72 3C85 3 96 13 96 28C96 56 50 88 50 88Z" />
       </symbol>
     </defs>
   </svg>
@@ -47,7 +52,273 @@
       </button>
     </section>
 
-    <!-- ============ TRANG 2: CÂY TRÁI TIM ============ -->
+    <!-- ============ TRANG 2: OUR TIME TOGETHER ============ -->
+    <section class="scene" id="scene-time" data-scene="time" aria-hidden="true">
+
+      <header class="time-head">
+        <h2 class="time-title" id="timeTitle">Our Time Together</h2>
+
+        <div class="time-panel" id="timePanel">
+          <!-- ✏️ ĐỔI NGÀY BẮT ĐẦU Ở script.js: const START_DATE = new Date(2025, 10, 19) -->
+          <div class="time-grid" id="timeGrid" role="timer" aria-label="Thời gian bên nhau">
+            <div class="tcell" id="cellYears" hidden><b data-u="years">0</b><span>năm</span></div>
+            <div class="tcell"><b data-u="months">0</b><span>tháng</span></div>
+            <div class="tcell"><b data-u="days">0</b><span>ngày</span></div>
+            <div class="tcell"><b data-u="hours">00</b><span>giờ</span></div>
+            <div class="tcell"><b data-u="minutes">00</b><span>phút</span></div>
+            <div class="tcell tcell--sec"><b data-u="seconds">00</b><span>giây</span></div>
+          </div>
+
+          <!-- Lõi trái tim: nhận năng lượng từ các trái tim bay lên -->
+          <div class="core" id="core" aria-hidden="true">
+            <i class="core__ring"></i>
+            <svg viewBox="0 0 100 90">
+              <use href="#heart" fill="url(#gHeart)" /></svg>
+          </div>
+        </div>
+
+        <p class="time-note" id="timeNote"><span id="totalDays">0</span> ngày bên nhau ♡</p>
+      </header>
+
+      <div class="time-stage">
+        <svg id="timeSvg" viewBox="60 70 480 350" preserveAspectRatio="xMidYMid meet" role="img"
+          aria-label="Chàng trai tiến lại tặng bó hoa cho cô gái">
+          <defs>
+            <pattern id="pStripe" width="10" height="14" patternUnits="userSpaceOnUse">
+              <rect width="10" height="14" fill="#2db3a6" />
+              <rect y="9" width="10" height="4" fill="#dff7f3" />
+            </pattern>
+            <linearGradient id="gDress" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#ffffff" />
+              <stop offset="1" stop-color="#ffeaf1" />
+            </linearGradient>
+            <radialGradient id="gGround" cx="50%" cy="50%" r="50%">
+              <stop offset="0" stop-color="#fff" stop-opacity=".85" />
+              <stop offset="1" stop-color="#fff" stop-opacity="0" />
+            </radialGradient>
+            <symbol id="flower" viewBox="-14 -14 28 28" overflow="visible">
+              <g fill="currentColor">
+                <circle cx="7.5" cy="0" r="6.6" />
+                <circle cx="3.75" cy="6.5" r="6.6" />
+                <circle cx="-3.75" cy="6.5" r="6.6" />
+                <circle cx="-7.5" cy="0" r="6.6" />
+                <circle cx="-3.75" cy="-6.5" r="6.6" />
+                <circle cx="3.75" cy="-6.5" r="6.6" />
+              </g>
+              <circle r="5" fill="#ffd45e" />
+            </symbol>
+            <!-- bím tóc xương cá (bên trái màn hình; bên phải lấy đối xứng bằng scale(-1 1)) -->
+            <g id="braid">
+              <path d="M-62.5 246 C-64 280 -52 300 -50.5 332 L-37.5 332 C-39 302 -47 280 -45.5 246Z" fill="#3b2a28" />
+              <path
+                d="M-62.5 256.7 L-54.1 263.7 L-45.7 256.8 M-61.8 265.7 L-53.5 272.8 L-45.3 265.9 M-60.6 274.2 L-52.6 281.4 L-44.5 274.6 M-59 282.4 L-51.3 289.7 L-43.5 283 M-57.3 290.3 L-49.8 297.7 L-42.4 291.1 M-55.4 298.3 L-48.3 305.7 L-41.1 299.2 M-53.7 306.4 L-46.8 313.8 L-39.9 307.2 M-52.2 314.7 L-45.5 322.1 L-38.8 315.5 M-51 323.5 L-44.5 330.7 L-38 323.9"
+                fill="none" stroke="#6a4a44" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+                opacity=".9" />
+              <path d="M-50 334 Q-44 357 -38 334Z" fill="#3b2a28" />
+              <ellipse cx="-44" cy="332" rx="8.5" ry="4.2" fill="#ff7fa9" />
+              <ellipse cx="-46.5" cy="330.8" rx="2.6" ry="1.3" fill="#fff" opacity=".6" />
+            </g>
+          </defs>
+
+          <!-- mặt đất -->
+          <ellipse cx="300" cy="402" rx="310" ry="22" fill="url(#gGround)" />
+          <use href="#heart" x="40" y="388" width="14" height="13" fill="#ff9fbf" opacity=".5" />
+          <use href="#heart" x="548" y="386" width="12" height="11" fill="#ffb0c8" opacity=".5" />
+          <use href="#heart" x="86" y="396" width="9" height="8" fill="#ffb0c8" opacity=".4" />
+
+          <!-- ================= BẠN NAM ================= -->
+          <g id="boyG">
+            <ellipse cx="0" cy="398" rx="50" ry="9" fill="#c25a7d" opacity=".18" />
+            <!-- thân, chân (dáng gầy hơn; dùng chung cho cả mặt trước và mặt sau) -->
+            <g id="boyBody">
+              <rect x="-27" y="336" width="22" height="56" rx="9" fill="#7388b5" />
+              <rect x="5" y="336" width="22" height="56" rx="9" fill="#7388b5" />
+              <ellipse cx="-16" cy="395" rx="17" ry="8.5" fill="#fff" />
+              <ellipse cx="16" cy="395" rx="17" ry="8.5" fill="#fff" />
+              <rect x="-8" y="238" width="16" height="30" rx="8" fill="#f3bfa0" />
+              <rect x="-39" y="256" width="78" height="94" rx="24" fill="url(#pStripe)" />
+              <!-- tay trái (bên trái màn hình) buông xuôi -->
+              <line x1="-37" y1="277" x2="-43" y2="297" stroke="#2db3a6" stroke-width="16" stroke-linecap="round" />
+              <line x1="-43" y1="297" x2="-48" y2="329" stroke="#ffe0cc" stroke-width="12.5" stroke-linecap="round" />
+              <circle cx="-49" cy="333" r="8" fill="#ffe0cc" />
+            </g>
+
+            <!-- đầu bạn nam (nhìn về phía bạn nữ) -->
+            <g id="boyHeadFront">
+              <path d="M-10 256 Q0 274 10 256Z" fill="#ffe0cc" />
+              <circle cx="-52" cy="206" r="10" fill="#f6c4a8" />
+              <circle cx="52" cy="206" r="10" fill="#f6c4a8" />
+              <!-- mặt thon hơn, cằm gọn -->
+              <path
+                d="M-52 200 C-52 164 -30 142 0 142 C30 142 52 164 52 200 C52 230 28 258 0 258 C-28 258 -52 230 -52 200Z"
+                fill="#ffe0cc" />
+              <ellipse id="boyBlushL" cx="-33" cy="222" rx="9" ry="5.5" fill="#ff8fa8" opacity=".35" />
+              <ellipse id="boyBlushR" cx="33" cy="222" rx="9" ry="5.5" fill="#ff8fa8" opacity=".35" />
+              <!-- tóc nâu tròn, mái lệch chia thành các lọn nhọn vuốt sang phải, hai lọn nhỏ vểnh ở đỉnh trái, vệt bóng trên đỉnh -->
+              <path
+                d="M-52 216 C-53 206 -54 196 -55 186 C-58 158 -52 134 -34 124 L-44 110 C-40 114 -36 117 -31 119 L-34 105 C-30 110 -26 113 -20 116 C-8 112 10 112 26 116 C50 122 62 150 56 186 C55 196 54 206 52 216 C50 208 48 200 47 192 C46 184 44 176 40 170 Q36 178 28 178 Q22 172 14 160 Q12 176 -4 176 Q-10 170 -16 158 Q-18 170 -30 170 Q-34 166 -38 160 C-42 166 -46 176 -47 192 C-48 200 -50 208 -52 216Z"
+                fill="#603f2f" />
+              <g fill="none" stroke-linecap="round">
+                <path d="M-30 136 Q-12 124 8 128" stroke="#94694c" stroke-width="4" opacity=".85" />
+                <path d="M16 130 Q30 130 40 140" stroke="#94694c" stroke-width="3.2" opacity=".7" />
+                <path d="M-24 148 Q-14 152 -8 166 M4 144 Q10 150 14 160" stroke="#47291d" stroke-width="2.2"
+                  opacity=".5" />
+              </g>
+              <path d="M-33 188 Q-24 182 -14 186" stroke="#4a3428" stroke-width="3.4" fill="none"
+                stroke-linecap="round" />
+              <path d="M14 186 Q24 182 33 188" stroke="#4a3428" stroke-width="3.4" fill="none" stroke-linecap="round" />
+              <g id="boyEyes">
+                <ellipse cx="-23" cy="207" rx="6" ry="8.2" fill="#2a2430" />
+                <ellipse cx="23" cy="207" rx="6" ry="8.2" fill="#2a2430" />
+                <circle cx="-21" cy="203.5" r="2.5" fill="#fff" />
+                <circle cx="25" cy="203.5" r="2.5" fill="#fff" />
+              </g>
+              <path id="boyMouth" d="M-9 228 Q0 238 9 228" stroke="#c4566f" stroke-width="3.4" fill="none"
+                stroke-linecap="round" />
+            </g>
+
+            <!-- tay phải: cầm bó hoa (vẽ động bằng JS) -->
+            <g id="boyArm">
+              <path id="boyArmSleeve" stroke="#2db3a6" stroke-width="16" stroke-linecap="round" fill="none" />
+              <path id="boyArmSkin" stroke="#ffe0cc" stroke-width="12.5" stroke-linecap="round" fill="none" />
+              <circle id="boyHand" r="8" fill="#ffe0cc" />
+            </g>
+          </g>
+
+          <!-- ================= BẠN NỮ ================= -->
+          <g id="girlG">
+            <ellipse cx="0" cy="398" rx="62" ry="9" fill="#c25a7d" opacity=".18" />
+
+            <!-- tóc phía sau -->
+            <g id="girlHairBack">
+              <path
+                d="M-63 206 C-66 160 -42 126 0 124 C42 126 66 160 63 206 C63 236 54 256 40 262 L-40 262 C-54 256 -63 236 -63 206Z"
+                fill="#3b2a28" />
+            </g>
+
+            <g id="girlBody">
+              <!-- chân -->
+              <rect x="-18" y="340" width="13" height="50" rx="6" fill="#ffe0cc" />
+              <rect x="5" y="340" width="13" height="50" rx="6" fill="#ffe0cc" />
+              <rect x="-19" y="372" width="15" height="20" rx="6" fill="#fff" />
+              <rect x="4" y="372" width="15" height="20" rx="6" fill="#fff" />
+              <ellipse cx="-12" cy="395" rx="16" ry="8" fill="#ffaac4" />
+              <ellipse cx="12" cy="395" rx="16" ry="8" fill="#ffaac4" />
+              <!-- cổ -->
+              <rect x="-9" y="240" width="18" height="30" rx="8" fill="#f3bfa0" />
+              <!-- tay (cong về phía bụng, hai bàn tay chụm lại) -->
+              <path d="M-31 276 Q-58 316 -12 334" stroke="#ffe0cc" stroke-width="12" stroke-linecap="round"
+                fill="none" />
+              <path d="M31 276 Q58 316 12 334" stroke="#ffe0cc" stroke-width="12" stroke-linecap="round" fill="none" />
+              <!-- váy trắng -->
+              <path
+                d="M-26 262 Q0 272 26 262 L32 302 Q64 330 66 366 q-8.25 11 -16.5 0 q-8.25 11 -16.5 0 q-8.25 11 -16.5 0 q-8.25 11 -16.5 0 q-8.25 11 -16.5 0 q-8.25 11 -16.5 0 q-8.25 11 -16.5 0 q-8.25 11 -16.5 0 Q-64 330 -32 302 Z"
+                fill="url(#gDress)" stroke="#ffd2e1" stroke-width="1.6" stroke-linejoin="round" />
+              <path d="M-31 298 L31 298 L33 307 L-33 307Z" fill="#ffc4d8" />
+              <use href="#heart" x="-40" y="326" width="11" height="10" fill="#ff9fbf" opacity=".55" />
+              <use href="#heart" x="22" y="322" width="10" height="9" fill="#ff9fbf" opacity=".55" />
+              <use href="#heart" x="-8" y="344" width="10" height="9" fill="#ff9fbf" opacity=".55" />
+              <!-- tay bồng -->
+              <circle cx="-34" cy="270" r="13" fill="#fff" stroke="#ffd2e1" stroke-width="1.6" />
+              <circle cx="34" cy="270" r="13" fill="#fff" stroke="#ffd2e1" stroke-width="1.6" />
+              <!-- nơ cổ -->
+              <ellipse cx="-8" cy="266" rx="9" ry="5.5" fill="#ff7fa9" transform="rotate(-18 -8 266)" />
+              <ellipse cx="8" cy="266" rx="9" ry="5.5" fill="#ff7fa9" transform="rotate(18 8 266)" />
+              <circle cx="0" cy="267" r="4" fill="#ff5c92" />
+            </g>
+
+            <!-- hai bím tóc xương cá buông trước ngực (nằm trên thân, dưới phần tóc ở đầu) -->
+            <g id="girlBraids">
+              <use href="#braid" />
+              <use href="#braid" transform="scale(-1 1)" />
+            </g>
+
+            <!-- đầu -->
+            <g id="girlHead">
+              <circle cx="0" cy="200" r="58" fill="#ffe0cc" />
+              <!-- tóc ngôi giữa: mỏng ở đỉnh đầu, rủ xuống hai bên má như rèm rồi nối vào hai bím -->
+              <path
+                d="M0 127 C44 128 65 160 62 204 C64 226 63 244 58 258 C55 264 47 262 45 254 C45 244 49 232 51 222 C54 214 55 208 54 202 C52 196 46 190 38 184 C26 172 8 158 0 148 C-8 158 -26 172 -38 184 C-46 190 -52 196 -54 202 C-55 208 -54 214 -51 222 C-49 232 -45 244 -45 254 C-47 262 -55 264 -58 258 C-63 244 -64 226 -62 204 C-65 160 -44 128 0 127Z"
+                fill="#3b2a28" />
+              <g fill="none" stroke="#6a4a44" stroke-linecap="round">
+                <path d="M0 130 L0 147" stroke-width="2.2" opacity=".8" />
+                <path d="M-6 133 C-26 136 -44 152 -54 188 M6 133 C26 136 44 152 54 188" stroke-width="2.6"
+                  opacity=".7" />
+                <path d="M-4 141 C-20 146 -36 162 -46 184 M4 141 C20 146 36 162 46 184" stroke-width="2"
+                  opacity=".55" />
+              </g>
+              <use href="#heart" x="-56" y="160" width="18" height="16" fill="#ff6f9f"
+                transform="rotate(-20 -47 168)" />
+              <!-- má hồng -->
+              <ellipse id="girlBlushL" cx="-35" cy="223" rx="11" ry="6.5" fill="#ff7f9f" opacity=".5" />
+              <ellipse id="girlBlushR" cx="35" cy="223" rx="11" ry="6.5" fill="#ff7f9f" opacity=".5" />
+              <g id="girlBlushLines" opacity="0" stroke="#ff5c86" stroke-width="2" stroke-linecap="round">
+                <path d="M-44 218 l-4 8 M-37 218 l-4 8 M-30 218 l-4 8" />
+                <path d="M30 218 l-4 8 M37 218 l-4 8 M44 218 l-4 8" />
+              </g>
+              <!-- mắt mở -->
+              <g id="girlEyesOpen">
+                <g id="girlEyesDot">
+                  <ellipse cx="-23" cy="207" rx="6.6" ry="9" fill="#34262b" />
+                  <ellipse cx="23" cy="207" rx="6.6" ry="9" fill="#34262b" />
+                  <circle cx="-21" cy="203" r="2.8" fill="#fff" />
+                  <circle cx="25" cy="203" r="2.8" fill="#fff" />
+                  <circle cx="-25" cy="211" r="1.3" fill="#fff" />
+                  <circle cx="21" cy="211" r="1.3" fill="#fff" />
+                </g>
+              </g>
+              <!-- mắt cười (khi ngại) -->
+              <g id="girlEyesShy" opacity="0" stroke="#34262b" stroke-width="3.6" fill="none" stroke-linecap="round">
+                <path d="M-32 210 Q-23 199 -14 210" />
+                <path d="M14 210 Q23 199 32 210" />
+              </g>
+              <path id="girlMouth" d="M-6 229 Q0 234 6 229" stroke="#c4566f" stroke-width="3" fill="none"
+                stroke-linecap="round" stroke-linejoin="round" />
+            </g>
+
+            <!-- chỗ để bó hoa khi bạn nữ cầm -->
+            <g id="girlSlot"></g>
+
+            <!-- bàn tay (luôn nằm trên bó hoa) -->
+            <g id="girlHands">
+              <circle cx="-12" cy="334" r="8.5" fill="#ffe0cc" />
+              <circle cx="12" cy="334" r="8.5" fill="#ffe0cc" />
+            </g>
+          </g>
+
+          <!-- ================= BÓ HOA ================= -->
+          <g id="bqWorld">
+            <g id="bouquet">
+              <ellipse cx="-30" cy="-62" rx="17" ry="7.5" fill="#79c79a" transform="rotate(-35 -30 -62)" />
+              <ellipse cx="30" cy="-62" rx="17" ry="7.5" fill="#79c79a" transform="rotate(35 30 -62)" />
+              <ellipse cx="0" cy="-96" rx="7.5" ry="17" fill="#6dbd90" />
+              <path d="M-6 0 L6 0 L40 -54 Q0 -44 -40 -54Z" fill="#ffc9da" />
+              <path d="M-6 0 L-2 0 L-12 -50 Q-24 -49 -40 -54Z" fill="#ffb3cb" opacity=".8" />
+              <path d="M2 0 L6 0 L40 -54 Q30 -50 22 -49Z" fill="#fff" opacity=".7" />
+              <use href="#flower" x="-17" y="-83" width="34" height="34" color="#ff7fa9" />
+              <use href="#flower" x="-41" y="-72" width="30" height="30" color="#ffffff" />
+              <use href="#flower" x="11" y="-72" width="30" height="30" color="#ffb0c8" />
+              <use href="#flower" x="-30" y="-98" width="27" height="27" color="#ffd2b8" />
+              <use href="#flower" x="3" y="-98" width="27" height="27" color="#ff5c92" />
+              <use href="#flower" x="-14" y="-62" width="28" height="28" color="#fff4f8" />
+              <ellipse cx="-8" cy="-19" rx="11" ry="6" fill="#ff5c92" transform="rotate(-20 -8 -19)" />
+              <ellipse cx="8" cy="-19" rx="11" ry="6" fill="#ff5c92" transform="rotate(20 8 -19)" />
+              <circle cx="0" cy="-19" r="4.5" fill="#e0457b" />
+            </g>
+            <circle id="boyHandTop" r="8" fill="#ffe0cc" />
+          </g>
+        </svg>
+
+        <p class="time-hint" id="timeHint">Chạm vào màn hình bất kỳ ♡</p>
+      </div>
+
+      <button class="nav-heart" type="button" data-next="tree" aria-label="Trang tiếp theo">
+        <svg viewBox="0 0 100 90" aria-hidden="true">
+          <use href="#heart" fill="url(#gHeart)" /></svg>
+      </button>
+    </section>
+
+    <!-- ============ TRANG 3: CÂY TRÁI TIM ============ -->
     <section class="scene" id="scene-tree" data-scene="tree" aria-hidden="true">
       <div class="ground" id="ground"></div>
       <canvas id="treeCanvas" aria-label="Cây trái tim đang mọc"></canvas>
@@ -57,7 +328,8 @@
         <div class="bubble" id="bubbleBoy">Cả thế giới để anh lo</div>
         <span class="tape"></span>
         <div class="polaroid__photo"><img src="images/boy.jpg" alt="Ảnh hồi nhỏ của anh" /></div>
-        <svg class="polaroid__heart" viewBox="0 0 100 90" aria-hidden="true"><use href="#heart" /></svg>
+        <svg class="polaroid__heart" viewBox="0 0 100 90" aria-hidden="true">
+          <use href="#heart" /></svg>
       </figure>
 
       <!-- Bạn nữ (phải) -->
@@ -65,26 +337,31 @@
         <div class="bubble" id="bubbleGirl">Thế giới</div>
         <span class="tape"></span>
         <div class="polaroid__photo"><img src="images/girl.jpg" alt="Ảnh hồi nhỏ của em" /></div>
-        <svg class="polaroid__heart" viewBox="0 0 100 90" aria-hidden="true"><use href="#heart" /></svg>
+        <svg class="polaroid__heart" viewBox="0 0 100 90" aria-hidden="true">
+          <use href="#heart" /></svg>
       </figure>
 
       <button class="nav-heart" type="button" data-next="letter" aria-label="Trang tiếp theo">
-        <svg viewBox="0 0 100 90" aria-hidden="true"><use href="#heart" fill="url(#gHeart)" /></svg>
+        <svg viewBox="0 0 100 90" aria-hidden="true">
+          <use href="#heart" fill="url(#gHeart)" /></svg>
       </button>
     </section>
 
-    <!-- ============ TRANG 3: THƯ + ẢNH KỶ NIỆM ============ -->
+    <!-- ============ TRANG 4: THƯ + ẢNH KỶ NIỆM ============ -->
     <section class="scene" id="scene-letter" data-scene="letter" aria-hidden="true">
       <div class="letter-layout">
 
         <!-- ✏️ SỬA LỜI THƯ Ở ĐÂY (mỗi thẻ <p> là một đoạn) -->
         <article class="letter" id="letter" aria-label="Thư gửi người yêu">
-          <h2 class="letter__title" id="letterTitle">Gửi em của anh,</h2>
+          <h2 class="letter__title" id="letterTitle">Gửi vợ iu ♡</h2>
           <div class="letter__body" id="letterBody">
-            <p>Một năm trôi qua nhanh như một cái chớp mắt, vì ngày nào có em cũng là một ngày đáng nhớ. Cảm ơn em đã đến, đã ở lại và thương anh theo cách dịu dàng nhất.</p>
-            <p>Cảm ơn em vì đã kiên nhẫn với những lúc anh vụng về, vì những buổi chiều cười thật to, và cả những lúc chỉ ngồi cạnh nhau không nói gì mà vẫn thấy bình yên.</p>
-            <p>Anh không hứa mình sẽ hoàn hảo, nhưng anh hứa sẽ luôn cố gắng để em được hạnh phúc. Cả thế giới này để anh lo.</p>
-            <p class="letter__sign">Yêu em nhiều, anh ♡</p>
+            <p> Một năm vừa qua trôi nhanh như gió. Đó là khoảng thời gian anh được một người yêu thương và quan tâm nhiều đến vậy.
+              Từng khoảnh khắc anh gặp em đều là những mảnh kí ức khó nhòa trong tháng năm tuổi trẻ ấy.</p>
+            <p>Cảm ơn em vì đã luôn ở cạnh anh. Em là người anh tìm đến đầu tiên mỗi khi anh suy sụp. Anh dần nhận ra
+              em đã là một phần không thể thiếu trong cuộc sống của anh.</p>
+            <p>Anh luôn luôn trân trọng em và mọi thứ em vun đắp cho anh. Mình cùng nhau xây dựng chuyện tình này thật đẹp vợ nhé. 
+              Cả đời này để anh lo.</p>
+            <p class="letter__sign">Yêu em nhiều, chồng ♡</p>
           </div>
         </article>
 
@@ -118,18 +395,95 @@
       </div>
 
       <button class="nav-heart" type="button" data-next="final" aria-label="Trang tiếp theo">
-        <svg viewBox="0 0 100 90" aria-hidden="true"><use href="#heart" fill="url(#gHeart)" /></svg>
+        <svg viewBox="0 0 100 90" aria-hidden="true">
+          <use href="#heart" fill="url(#gHeart)" /></svg>
       </button>
     </section>
 
-    <!-- ============ TRANG 4: CONTINUE FOREVER LOVE ============ -->
+    <!-- ============ TRANG 5: CONTINUE FOREVER LOVE ============ -->
     <section class="scene" id="scene-final" data-scene="final" aria-hidden="true">
-      <div class="final">
-        <svg class="final__heart" viewBox="0 0 100 90" aria-hidden="true"><use href="#heart" /></svg>
-        <h2 class="final__text">Continue<br />forever love</h2>
+      <!-- Cây hoa phát sáng + cánh hoa rơi (vẽ bằng canvas trong script.js) -->
+      <canvas id="finalCanvas" aria-hidden="true"></canvas>
+
+      <!-- ✏️ Bóng đen hai bạn ôm nhau dưới gốc cây (SVG, đổi màu ở thuộc tính fill) -->
+      <div class="couple" id="couple" role="img" aria-label="Bóng hai người ôm nhau dưới gốc cây">
+        <svg viewBox="0 0 240 250" aria-hidden="true" focusable="false">
+          <g fill="#050308" stroke="none">
+            <!-- ===== BẠN NAM (quay mặt sang phải) ===== -->
+            <g transform="rotate(5 95 246)">
+              <!-- chân + giày -->
+              <path d="M88 166 L86 236" stroke="#050308" stroke-width="17" stroke-linecap="round" fill="none" />
+              <path d="M104 166 L109 236" stroke="#050308" stroke-width="17" stroke-linecap="round" fill="none" />
+              <ellipse cx="91" cy="243" rx="13" ry="6" />
+              <ellipse cx="115" cy="243" rx="13" ry="6" />
+              <!-- thân: vai vừa, eo gọn -->
+              <path
+                d="M71 118 Q70 104 85 102 L106 102 Q121 104 120 118 L113 160 Q111 176 100 176 L90 176 Q79 176 78 160Z" />
+              <!-- đầu hơi cúi nhìn bạn nữ; tóc gọn ôm đầu, hai chỏm nhọn phía sau đỉnh -->
+              <g transform="rotate(7 95 94)">
+                <rect x="88" y="86" width="14" height="22" rx="6" />
+                <circle cx="95" cy="70" r="22" />
+                <path
+                  d="M74 74 C72 72 70 70 70 66 C70 52 76 43 82 41 C83 38 84 35 86 32 C86.5 36 87 39 88 41 C90 39 92 36 94 33 C94.5 36 95 39 96 41 C104 40 110 42 114 46 C121 51 123 58 122 66 C122 69 120 72 117.5 74 C115 71 114 69 112 65 C110 69 108 72 105 74 C103 69 101 66 99 63 C97 68 94 71 91 72 C89 68 87 65 84 63 C82 67 79 70 76 73 C75 74 74 74 74 74Z" />
+              </g>
+            </g>
+
+            <!-- ===== BẠN NỮ (quay mặt sang trái) ===== -->
+            <g transform="rotate(-6 172 246)">
+              <!-- chân + giày -->
+              <path d="M163 216 L163 238" stroke="#050308" stroke-width="9" stroke-linecap="round" fill="none" />
+              <path d="M181 216 L181 238" stroke="#050308" stroke-width="9" stroke-linecap="round" fill="none" />
+              <ellipse cx="159" cy="243" rx="12" ry="5.5" />
+              <ellipse cx="178" cy="243" rx="12" ry="5.5" />
+              <!-- váy xoè, viền lượn -->
+              <path
+                d="M158 152 L186 152 Q205 184 210 216 q-6.33 8 -12.67 0 q-6.33 8 -12.67 0 q-6.33 8 -12.67 0 q-6.33 8 -12.67 0 q-6.33 8 -12.67 0 q-6.33 8 -12.67 0 Q138 184 158 152Z" />
+              <!-- thân trên -->
+              <path d="M153 132 Q153 120 165 120 L180 120 Q192 120 192 132 L188 158 L156 158Z" />
+              <!-- cổ nối mềm với vai -->
+              <path d="M163 108 Q171 115 180 108 L184 128 Q175 135 159 128Z" />
+
+              <!-- một bím tóc tết buông qua vai -->
+              <path d="M186 104 C196 108 198 122 197 134 L189 134 C189 124 187 114 181 110Z" />
+              <ellipse cx="193" cy="120" rx="7.4" ry="5.4" transform="rotate(24 193 120)" />
+              <ellipse cx="195" cy="129" rx="7.2" ry="5.3" transform="rotate(-24 195 129)" />
+              <ellipse cx="196" cy="138" rx="7" ry="5.2" transform="rotate(24 196 138)" />
+              <ellipse cx="197" cy="147" rx="6.6" ry="5" transform="rotate(-24 197 147)" />
+              <ellipse cx="197" cy="155" rx="6" ry="4.7" transform="rotate(24 197 155)" />
+              <ellipse cx="197" cy="162" rx="5.2" ry="4.3" transform="rotate(-24 197 162)" />
+              <ellipse cx="197" cy="169" rx="4.2" ry="3.8" transform="rotate(24 197 169)" />
+              <path d="M194 171 Q197 183 200 171Z" />
+
+              <!-- đầu hơi ngẩng nhìn bạn nam; bỏ chi tiết nhô ở mặt -->
+              <g transform="rotate(9 172 112)">
+                <rect x="164" y="104" width="15" height="20" rx="6" />
+                <ellipse cx="179" cy="92" rx="19" ry="22" />
+                <circle cx="172" cy="92" r="19.5" />
+                <path
+                  d="M156 96 C151 76 162 66 178 66 C197 66 205 82 202 100 C201 108 197 113 192 116 C192 106 189 98 184 92 C176 84 163 84 156 96Z" />
+              </g>
+            </g>
+
+            <!-- ===== VÒNG TAY ÔM ===== -->
+            <path d="M151 133 Q131 124 114 107" stroke="#050308" stroke-width="10" stroke-linecap="round" fill="none" />
+            <circle cx="111" cy="104" r="6" />
+
+            <!-- ===== HAI TAY BẠN NAM ÔM BẠN NỮ ===== -->
+            <!-- tay trên: vòng qua lưng/vai bạn nữ -->
+            <path d="M114 112 Q138 118 176 130" stroke="#050308" stroke-width="10" stroke-linecap="round" fill="none" />
+            <circle cx="178" cy="131" r="5.5" />
+            <!-- tay dưới: ôm quanh eo bạn nữ -->
+            <path d="M116 132 Q140 150 178 150" stroke="#050308" stroke-width="10" stroke-linecap="round" fill="none" />
+            <circle cx="180" cy="150" r="5.5" />
+          </g>
+        </svg>
       </div>
+
+      <h2 class="final__text" id="finalText">Continue<br />Forever Love</h2>
+
       <button class="replay" id="replayBtn" type="button">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5V2L7 6.5 12 11V8a5 5 0 1 1-5 5H5a7 7 0 1 0 7-8z" /></svg>
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 5V2L7 6.5 12 11V8a5 5 0 1 1-5 5H5a7 7 0 1 0 7-8z" /></svg>
         Xem lại từ đầu
       </button>
     </section>
@@ -138,4 +492,5 @@
 
   <script src="script.js"></script>
 </body>
+
 </html>
